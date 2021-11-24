@@ -1,0 +1,23 @@
+---
+- name: this is deploy of ftp
+  hosts: all
+  tasks:
+          - name: this is install of ftp
+            yum:
+                    name: vsftpd
+                    state: latest
+          - name: start service ftp
+            service:
+                    name: vsftpd.service
+                    state: started
+                    enabled: yes
+          - firewalld:
+                    service: ftp
+                    permanent: yes
+                    state: enabled
+                    immediate: yes
+           
+                
+           
+
+

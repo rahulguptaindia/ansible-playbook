@@ -1,0 +1,13 @@
+---
+- name: crate iam user
+  hosts: localhost
+  connection: local
+  tasks:
+          - name: create i am
+            iam:
+                    iam_type: user
+                    name: bhanu
+                    state: present
+                    password: 8386938653
+                    access_key_state: create
+

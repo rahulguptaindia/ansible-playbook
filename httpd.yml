@@ -1,0 +1,25 @@
+---
+- name: this is my first playbook
+  hosts: all
+  tasks: 
+        - name: this is install of httpd
+          yum: 
+                name: httpd
+                state: latest
+        - name: put my web data
+          lineinfile:
+                  path: /var/www/html/index.html
+                  line: "bhanu bhai bekar aadmi hai"
+                  create: yes
+        - name: start my service
+          service:
+                  name: httpd
+                  state: restarted
+                  enabled: yes
+        - firewalld:
+                port: 80/tcp
+                permanent: yes
+                state: enabled
+                immediate: yes
+
+
